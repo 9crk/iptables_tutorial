@@ -1,10 +1,9 @@
 ## All in all. it's a story start from proxy
-
- Author: 9crk 
-
- Date:	2020-03-04
-
- Place: in ShenZhen Intelli-Rocks Tech
+```
+Author: 9crk 
+Date:	2020-03-04
+Place: in ShenZhen Intelli-Rocks Tech
+```
 ### some tips
 
  iptables -L		:check all the input/output/forward rules
