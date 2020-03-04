@@ -1,8 +1,10 @@
 ## All in all. it's a story start from proxy
+
   Author: 9crk 
   Date:	2020-03-04
   Place: in ShenZhen Intelli-Rocks Tech
 ### some tips
+
  iptables -L		:check all the input/output/forward rules
 		when you see multiple rules under INPUT or OUTPUT, it means a rule chain
 		the packet ticked out by 1st rule will not goto the 2nd rule
@@ -15,6 +17,7 @@
  iptables -t nat -F	:clear all the nat rules
 
 ### Examples
+
  local packet forwarding. use http://xxx:8088 to visit http://xxx:80
  	iptables -t nat -I PREROUTING -p tcp --dport 8088 -j REDIRECT --to-ports 80
  remote port forwarding. use http://thisServer:8080 to visit http://googleIP:80
