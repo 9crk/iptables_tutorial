@@ -25,6 +25,5 @@ Place: in ShenZhen Intelli-Rocks Tech
 	iptables -t nat -A PREROUTING -d thisServerIP -p tcp --dport 8080 -j DNAT --to-destination googleIP:80
         iptables -t nat -A POSTROUTING -d googleIP -p tcp --dport 80 -j SNAT --to thisServerIP
 ```
- that's all you need to know about iptables
- if this document helps you.pls give me a star.
+ that's all you need to know about iptables. if this document helps you.pls give me a star.
 
