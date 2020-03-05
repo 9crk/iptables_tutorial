@@ -39,4 +39,6 @@ Place: in ShenZhen Intelli-Rocks Tech
 ![pic](test.png)
 国内SZ的阿里云其实也不错，效果也比较稳定。可以用作转发。
 
+以上测试只是在一个企业网络，如果切到手机4G网络，sg和aws-hk,us全都垃圾得不在同一个数量级，连实验都无法做完。
+但SZ和HK专线效果是差不多的。
 
