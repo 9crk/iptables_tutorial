@@ -26,4 +26,11 @@ Place: in ShenZhen Intelli-Rocks Tech
         iptables -t nat -A POSTROUTING -d googleIP -p tcp --dport 80 -j SNAT --to thisServerIP
 ```
  that's all you need to know about iptables. if this document helps you.pls give me a star.
+ 
+ 
+ And of course, dont forget set ip_forward in sysctl.
+ ```
+ echo 1 > /proc/sys/net/ipv4/ip_forward
+ sysctl -p
+ ```
 
