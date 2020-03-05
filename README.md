@@ -33,4 +33,10 @@ Place: in ShenZhen Intelli-Rocks Tech
  echo 1 > /proc/sys/net/ipv4/ip_forward
  sysctl -p
  ```
+企业网络A测试的结果，hk专线相当稳
+
+但是注意AWS-hk没有专线，相当垃圾。所以一定要找有CN2 hk专线的服务商，阿里hk的IP直接是ban掉的，所以不用考虑了。
+![pic](test.png)
+国内SZ的阿里云其实也不错，效果也比较稳定。可以用作转发。
+
 
