@@ -1,0 +1,51 @@
+zhouhua_iot.sh 
+
+myIP=103.80.25.31(ifconfig eth0)
+iot_node=aqm3wd1qlc3dy-ats.iot.us-east-1.amazonaws.com
+nslookup $iot_node|grep Address |grep "\."|awk 'NR>1{print$2}'>/tmp/t2.log
+letIn(){
+        iptables -t nat -A PREROUTING -d $myIP -p tcp --dport $2 -j DNAT --to-destination $1:$2
+}
+letOut(){
+        iptables -t nat -A POSTROUTING -d $1 -p tcp --dport $2 -j SNAT --to $myIP
+}
+iptables -t nat -F
+while read line
+do
+	letIn $line 8883
+done < /tmp/t2.log
+while read line
+do
+	letIn $line 443
+done < /tmp/t2.log
+
+letOut $iot_node 8883
+letOut $iot_node 443
+
+
+
+
+
+
+myIP=154.92.19.120(ifconfig eth0)
+http_node=dev-app.govee.com
+nslookup $http_node|grep Address |grep "\."|awk 'NR>1{print$2}'>/tmp/t1.log
+letIn(){
+        iptables -t nat -A PREROUTING -d $myIP -p tcp --dport $2 -j DNAT --to-destination $1:$2
+}
+letOut(){
+        iptables -t nat -A POSTROUTING -d $1 -p tcp --dport $2 -j SNAT --to $myIP
+}
+
+iptables -t nat -F
+while read line
+do
+	letIn $line 80
+done < /tmp/t1.log
+while read line
+do
+	letIn $line 443
+done < /tmp/t1.log
+
+letOut $http_node 80
+letOut $http_node 443
