@@ -49,3 +49,26 @@ done < /tmp/t1.log
 
 letOut $http_node 80
 letOut $http_node 443
+
+
+
+
+guard script:
+
+try=0
+while true
+do
+a=`nc -z devcn-app.govee.com 81;echo $?`
+b=`nc -z devcn-app.govee.com 442;echo $?`
+if [ $a != "0" -o $b != "0" ];then
+        try=$(($try + 1))
+else
+        try=0
+fi
+sleep 1
+echo $try
+if [ $try -gt 3 ];then
+        try=0
+        bash zhouhua.sh
+fi
+done
